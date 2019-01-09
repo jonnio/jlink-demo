@@ -1,3 +1,14 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.6'
+    id "org.kordamp.gradle.jdeps" version "0.5.0"
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
 task cleanAll(type: GradleBuild) {
     tasks = ['cli:clean', 'gui:clean']
 }
@@ -10,3 +21,6 @@ task wrapper(type: Wrapper) {
     gradleVersion = '4.2.1'
 }
 
+javafx {
+    modules = [ 'javafx.controls' ]
+}
